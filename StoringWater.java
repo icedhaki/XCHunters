@@ -6,8 +6,19 @@ import java.util.Arrays;
 public class StoringWater {
     public static int solution(int n, int[] height) {
         // your solution goes here
-        return 0;
-    }
+        int max = 0;
+        for(int i = 0; i < n - 1; i++){
+            for(int j = i+1; j < n; j++){
+                int volume = Math.min(height[i],height[j])*(j-i);
+                //System.out.println(volume);
+                if(volume > max){
+                    max = volume;
+                }
+            }
+        }
+        
+        return max;
+    }    
     
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
